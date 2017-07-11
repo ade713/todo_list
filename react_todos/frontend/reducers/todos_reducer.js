@@ -26,9 +26,7 @@ const todosReducer = (state = initialState, action) => {
       });
       return newState;
     case RECEIVE_TODO:
-      const newObj = {};
-      newObj[`${action.todo.id}`] = action.todo;
-      const mergedState = merge({}, state, newObj);
+      const mergedState = merge({}, state, { [action.todo.id]: action.todo });
       return mergedState;
     default:
       return state;
